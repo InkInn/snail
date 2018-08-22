@@ -1,6 +1,6 @@
 package patterns.commandChain;
 
-public class LS extends AbstractLS {
+public class DF extends AbstractDF {
 
     @Override
     protected String getOperateParam() {
@@ -9,6 +9,6 @@ public class LS extends AbstractLS {
 
     @Override
     protected String echo(CommandVO vo) {
-        return FileManager.ls(vo.getCommandName());
+        return DiskManager.df();
     }
 }

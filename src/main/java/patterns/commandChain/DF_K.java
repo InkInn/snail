@@ -1,14 +1,14 @@
 package patterns.commandChain;
 
-public class LS extends AbstractLS {
+public class DF_K extends AbstractDF {
 
     @Override
     protected String getOperateParam() {
-        return super.DEFAULT_PARAM;
+        return super.K_PARAM;
     }
 
     @Override
     protected String echo(CommandVO vo) {
-        return FileManager.ls(vo.getCommandName());
+        return DiskManager.df_k();
     }
 }

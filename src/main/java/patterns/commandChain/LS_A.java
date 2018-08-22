@@ -1,14 +1,14 @@
 package patterns.commandChain;
 
-public class LS extends AbstractLS {
+public class LS_A extends AbstractLS {
 
     @Override
     protected String getOperateParam() {
-        return super.DEFAULT_PARAM;
+        return super.A_PARAM;
     }
 
     @Override
     protected String echo(CommandVO vo) {
-        return FileManager.ls(vo.getCommandName());
+        return FileManager.ls_a(vo.getCommandName());
     }
 }

@@ -3,6 +3,7 @@ package patterns.commandChain;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class CommandVO {
     public final static String DIVIDE_FLAG = " ";
@@ -38,7 +39,10 @@ public class CommandVO {
     }
 
     public ArrayList<String> getParamList() {
-        return paramList;
+        if(this.paramList.size() == 0){
+            this.paramList.add("");
+        }
+        return new ArrayList(new HashSet(this.paramList));
     }
 
     public ArrayList<String> getDataList() {
