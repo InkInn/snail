@@ -1,28 +1,39 @@
 package future;
 
-import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class Complete {
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-//        testRunAsync();
-//        testSupplyAsync();
-//        testComplete();
-//        testCompleteException();
-//        System.out.println(Thread.currentThread().getName());
-//        CompletableFuture<Long> result = testSupplyAsyncApply();
-//        System.out.println("main sss");
-//        Thread.sleep(10000);
-        CompletableFuture<Integer> result = FutureUtils.within(testApply("a"), Duration.ofMillis(300)).exceptionally(e -> {
-            System.out.println(e);
-            return null;
-        });
-        System.out.println(result.get());
-        Thread.sleep(5000);
-        System.out.println("stop");
+    public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
+//        Random rand = new Random();
+//        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(() -> {
+//            try {
+//                Thread.sleep(3000 + rand.nextInt(1000));
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            return 100;
+//        });
+//        CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> {
+//            try {
+//                Thread.sleep(3000 + rand.nextInt(1000));
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            return "abc";
+//        });
+//        CompletableFuture<Void> f = CompletableFuture.allOf(future1, future2);
+//        CompletableFuture<Object> f =  CompletableFuture.anyOf(future1,future2);
+//        System.out.println(f.get());
+        CompletableFuture<Integer> future =  complete();
+        future.complete(2);
+        System.out.println(future.get(100,TimeUnit.MILLISECONDS));
+
+//        System.out.println(complete().get(100, TimeUnit.MILLISECONDS));
     }
 
     public static void testRunAsync() {
@@ -193,8 +204,29 @@ public class Complete {
             });
 
         });
-
     }
 
+    private static CompletableFuture<Integer> testGetOrJoin() {
+        return CompletableFuture.supplyAsync(() -> {
+            int i = 1 / 0;
+            return 100;
+        });
+    }
+
+    private static CompletableFuture<Integer> complete(){
+        return CompletableFuture.supplyAsync(() -> {
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            return 1;
+        }).whenComplete((result, e) -> {
+            System.out.println("complete" + result);
+        }).exceptionally(e -> {
+            System.out.println(e.getMessage());
+            return 0;
+        });
+    }
 
 }
