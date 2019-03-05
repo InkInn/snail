@@ -3,7 +3,6 @@
 .idea/
 snail.iml
 /target/
-src/main/java/META-INF/
 src/main/java/nio/
 src/main/java/spring/springInAction/chapter02/
 target/classes/application-context.xml
