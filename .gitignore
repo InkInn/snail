@@ -17,3 +17,4 @@ target/classes/web-context.xml
 target/generated-sources/
 target/generated-test-sources/
 web/index.jsp
+out/
