@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/test")
 public class TestController {
 
-    @RequestMapping("/test")
+    @RequestMapping("/tmp")
     @ResponseBody
-    public String test(){
-        return "lasldlasldas";
+    public String test(String uid){
+        return uid  + " aaaaaaaa";
     }
 }

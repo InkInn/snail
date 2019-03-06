@@ -1,10 +1,2 @@
 Manifest-Version: 1.0
-Class-Path: netty-all-4.1.6.Final.jar rxjava-2.2.0.jar spring-webmvc-5
- .0.8.RELEASE.jar spring-core-5.0.8.RELEASE.jar spring-test-5.0.8.RELE
- ASE.jar reactive-streams-1.0.2.jar spring-jcl-5.0.8.RELEASE.jar sprin
- g-context-5.0.8.RELEASE.jar aspectjtools-1.9.1.jar spring-beans-5.0.8
- .RELEASE.jar commons-lang3-3.7.jar lombok-1.18.2.jar spring-web-5.0.8
- .RELEASE.jar spring-aop-5.0.8.RELEASE.jar guava-19.0.jar spring-expre
- ssion-5.0.8.RELEASE.jar aspectjweaver-1.9.1.jar fastjson-1.2.47.jar a
- spectjrt-1.9.1.jar
-
+Class-Path:
