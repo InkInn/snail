@@ -16,8 +16,4 @@
        http://www.cmsblogs.com/schema/user.xsd">
 
 
-
-    <bean id="resultInfo" class="spring.factoryBean.ResultFactoryBean"/>
-    <myTag:user id="user" email="12233445566@qq.com" userName="chenssy" />
-
 </beans>

@@ -1,13 +1,12 @@
 package annotation;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class Test {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
-        Object resultInfo = ctx.getBean("&resultInfo");
-        System.out.println(resultInfo.getClass());
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
+//        Object resultInfo = ctx.getBean("&resultInfo");
+//        System.out.println(resultInfo.getClass());
+
+
     }
 }
