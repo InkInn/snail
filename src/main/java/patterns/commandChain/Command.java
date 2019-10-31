@@ -4,6 +4,9 @@ package patterns.commandChain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * handlerChain
+ */
 public abstract class Command {
     public abstract String execute(CommandVO vo);
 
