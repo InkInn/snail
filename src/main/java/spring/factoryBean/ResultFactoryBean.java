@@ -15,4 +15,9 @@ public class ResultFactoryBean implements FactoryBean<ResultInfo> {
     public Class<ResultInfo> getObjectType() {
         return ResultInfo.class;
     }
+
+
+    public static void main(String[] args) {
+        System.out.println(Integer.toBinaryString(2147483647));
+    }
 }
