@@ -45,12 +45,13 @@ public class RemoveNthNodeFromEndOfList {
             ListNode slow = dummy;
             int len = 0;
             while (fast != null) {
-                len++;
                 fast = fast.next;
-                if (len >= n) {
+                if (len > n) {
                     slow = slow.next;
                 }
+                len++;
             }
+            slow.next = slow.next.next;
             return dummy.next;
         }
     }
