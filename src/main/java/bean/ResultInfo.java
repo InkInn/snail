@@ -3,7 +3,7 @@ package bean;
 import lombok.Data;
 
 @Data
-public class ResultInfo {
+public class ResultInfo extends Object {
 
     public ResultInfo() {
     }
@@ -13,5 +13,9 @@ public class ResultInfo {
     private TrackInfo trackInfo;
 
     private AlbumInfo albumInfo;
+
+    public static void main(String[] args) {
+        System.out.println(Integer.toBinaryString(~2));
+    }
 
 }

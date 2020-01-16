@@ -37,4 +37,12 @@ public class LimitTest {
         pipe.close();
         return count.get() <= maxCount;
     }
+
+
+    public static boolean isActionAllowedEHash(String deviceId, String msgType, int periodSeconds, int maxCount) {
+//        Pipeline pipe = jedis.pipelined();
+//        pipe.hset(deviceId,msgType,String.valueOf(1));
+        return true;
+
+    }
 }
