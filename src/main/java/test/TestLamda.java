@@ -15,9 +15,7 @@ public class TestLamda {
         AtomicInteger settingForbid = new AtomicInteger();
         int count = 0;
         List<Integer> list = Lists.newArrayList(1,2,3,4,5,6);
-        list.forEach(i->{
-            settingForbid.incrementAndGet();
-        });
+        list.forEach(settingForbid::getAndAdd);
         System.out.println(settingForbid.get());
     }
 

@@ -12,9 +12,10 @@ public class ThreadTest {
     public static final List<Integer> pool = new LinkedList<>();
     public static final int MAX_COUNT = 100;
 
-    class Product extends Thread {
+    static class Product extends Thread {
         @Override
         public void run() {
+            int i = 0;
             while (true) {
                 synchronized (pool) {
                     if (pool.size() == MAX_COUNT) {
@@ -24,14 +25,14 @@ public class ThreadTest {
                             //
                         }
                     }
-                    pool.add(1);
+                    pool.add(++i);
                     pool.notifyAll();
                 }
             }
         }
     }
 
-    class Consumer extends Thread {
+    static class Consumer extends Thread {
         @Override
         public void run() {
             while (true) {
@@ -43,10 +44,19 @@ public class ThreadTest {
                             //
                         }
                     }
+                    System.out.println(pool.get(0));
                     pool.remove(0);
                     pool.notifyAll();
                 }
             }
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Product product = new Product();
+        Consumer consumer = new Consumer();
+        product.start();
+        consumer.start();
+        Thread.sleep(10000000);
     }
 }
