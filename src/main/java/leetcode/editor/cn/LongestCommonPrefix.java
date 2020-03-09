@@ -36,12 +36,11 @@ public class LongestCommonPrefix {
             String pre = strs[0];
             for (int i = 1; i < strs.length; i++) {
                 while (strs[i].indexOf(pre) != 0) {
-                    if (pre.equals("")) return pre;
+                    if (pre.equals("")) return "";
                     pre = pre.substring(0, pre.length() - 1);
                 }
             }
             return pre;
-
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
