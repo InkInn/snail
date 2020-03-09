@@ -15,6 +15,7 @@ import java.util.List;
 public class RestoreIpAddresses {
     public static void main(String[] args) {
         Solution solution = new RestoreIpAddresses().new Solution();
+        solution.restoreIpAddresses("25525511135");
     }
 
 
@@ -32,7 +33,7 @@ public class RestoreIpAddresses {
                                 int n2 = Integer.parseInt(s.substring(a, a + b));
                                 int n3 = Integer.parseInt(s.substring(a + b, a + b + c));
                                 int n4 = Integer.parseInt(s.substring((a + b + c)));
-                                if (n1 <= 255 && n2 <= 25 && n3 <= 255 && n4 <= 255) {
+                                if (n1 <= 255 && n2 <= 255 && n3 <= 255 && n4 <= 255) {
                                     ip.append(n1).append(".").append(n2).append(".").append(n3).append(".").append(n4);
                                     if (ip.length() == s.length() + 3) result.add(ip.toString());
                                     ip.delete(0, ip.length());
@@ -41,7 +42,7 @@ public class RestoreIpAddresses {
                         }
             return result;
         }
+
     }
     //leetcode submit region end(Prohibit modification and deletion)
-
 }
