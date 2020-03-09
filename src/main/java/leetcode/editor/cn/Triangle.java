@@ -31,16 +31,15 @@ public class Triangle {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minimumTotal(List<List<Integer>> triangle) {
-            int h = triangle.size();
-            int[] dp = new int[h + 1];
-            for (int i = h - 1; i >= 0; i--) {
+            int height = triangle.size();
+            int[] dp = new int[height + 1];
+            for (int i = height - 1; i >= 0; i--) {
                 for (int j = 0; j <= i; j++) {
-                    dp[j] = Math.min(dp[j], dp[j + 1]) + triangle.get(i).get(j);
+                    dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j + 1]);
                 }
             }
             return dp[0];
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
-
+    //leetcode submit region end(Prohibit modification and deletion)
 }

@@ -24,20 +24,19 @@ public class MaximalSquare {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maximalSquare(char[][] matrix) {
-            int rows = matrix.length;
-            int cols = rows > 0 ? matrix[0].length : 0;
-            int[][] dp = new int[matrix.length + 1][matrix[0].length + 1];
+            int row = matrix.length;
+            int col = matrix.length == 0 ? 0 : matrix[0].length;
             int maxLen = 0;
-            for (int i = 1; i <= rows; i++) {
-                for (int j = 1; j <= cols; j++) {
+            int[][] dp = new int[row + 1][col + 1];
+            for (int i = 1; i <= row; i++) {
+                for (int j = 1; j <= col; j++) {
                     if (matrix[i - 1][j - 1] == '1') {
-                        dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i][j - 1], dp[i - 1][j])) + 1;
+                        dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                         maxLen = Math.max(maxLen, dp[i][j]);
                     }
                 }
             }
             return maxLen * maxLen;
-
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
