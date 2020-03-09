@@ -54,21 +54,21 @@ public class ReverseWordsInAString {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String reverseWords(String s) {
-            if(s == null) return "";
+            if (s == null) return "";
             String[] strs = s.split(" ");
             Stack<String> stack = new Stack<>();
-            int len = strs.length;
-            for (int i = 0; i < len; i++) {
-                if (!strs[i].isEmpty())
-                    stack.push(strs[i]);
+            for (String str : strs) {
+                if (!str.isEmpty()) {
+                    stack.push(str);
+                }
             }
+            int len = stack.size();
+            if(len == 0) return "";
             StringBuilder sb = new StringBuilder();
-            int size = stack.size();
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < len; i++) {
                 sb.append(stack.pop()).append(" ");
             }
-            if(sb.length() == 0) return "";
-            return sb.substring(0, sb.length() - 1);
+            return sb.delete(sb.length() - 1, sb.length()).toString();
 
         }
     }

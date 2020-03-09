@@ -63,16 +63,16 @@ public class SimplifyPath {
         public String simplifyPath(String path) {
             String[] strs = path.split("/");
             Stack<String> stack = new Stack<>();
-            for (int i = 0; i < strs.length; i++) {
-                if (strs[i].equals(".")) continue;
-                if (strs[i].isEmpty()) continue;
-                if (strs[i].equals("..") && stack.isEmpty()) continue;
-                if (strs[i].equals("..") && !stack.isEmpty()) stack.pop();
-                else stack.push(strs[i]);
+            for (String str : strs) {
+                if (str.isEmpty() || str.equals(".")) continue;
+                if (stack.isEmpty() && str.equals("..")) continue;
+                if (str.equals("..")) stack.pop();
+                else stack.push(str);
             }
-            if (stack.size() == 0) return "/";
+            if(stack.isEmpty()) return "/";
+            int len = stack.size();
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < stack.size(); i++) {
+            for(int i = 0; i < len; i++){
                 sb.append("/").append(stack.get(i));
             }
             return sb.toString();
