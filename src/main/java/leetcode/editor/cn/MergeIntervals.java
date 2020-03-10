@@ -29,19 +29,17 @@ public class MergeIntervals {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[][] merge(int[][] intervals) {
-            LinkedList<int[]> res = new LinkedList<>();
-            if (intervals == null || intervals.length == 0) return  res.toArray(new int[0][]);
-
+            LinkedList<int[]> result = new LinkedList<>();
+            if (intervals == null || intervals.length == 0) return result.toArray(new int[0][]);
             Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
-
             for (int i = 0; i < intervals.length; i++) {
-                if (res.isEmpty() || res.getLast()[1] < intervals[i][0]) {
-                    res.add(intervals[i]);
-                }else {
-                    res.getLast()[1] = Math.max(res.getLast()[1],intervals[i][1]);
+                if (result.isEmpty() || result.getLast()[1] < intervals[i][0]) {
+                    result.add(intervals[i]);
+                } else {
+                    result.getLast()[1] = Math.max(result.getLast()[1], intervals[i][1]);
                 }
             }
-            return res.toArray(new int[0][]);
+            return result.toArray(new int[0][]);
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

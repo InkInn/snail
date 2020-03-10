@@ -40,32 +40,29 @@ public class MaxAreaOfIsland {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxAreaOfIsland(int[][] grid) {
-            if (grid == null || grid.length == 0) {
-                return 0;
-            }
+            if (grid == null || grid.length == 0) return 0;
             int max = 0;
-            for (int i = 0; i < grid.length; i++)
+            for (int i = 0; i < grid.length; i++) {
                 for (int j = 0; j < grid[0].length; j++) {
                     if (grid[i][j] == 1) {
-                        max = Math.max(max, BFS(grid, i, j));
+                        max = Math.max(max, search(grid, i, j));
                     }
                 }
+            }
             return max;
         }
 
-
-        public int BFS(int[][] grid, int i, int j) {
+        public int search(int[][] grid, int i, int j) {
             if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0) return 0;
             grid[i][j] = 0;
             int sum = 1;
-            sum = sum + BFS(grid, i - 1, j);
-            sum = sum + BFS(grid, i + 1, j);
-            sum = sum + BFS(grid, i, j - 1);
-            sum = sum + BFS(grid, i, j + 1);
+            sum = sum + search(grid, i - 1, j);
+            sum = sum + search(grid, i, j - 1);
+            sum = sum + search(grid, i + 1, j);
+            sum = sum + search(grid, i, j + 1);
             return sum;
         }
-
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

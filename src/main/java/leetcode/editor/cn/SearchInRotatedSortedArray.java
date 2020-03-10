@@ -36,9 +36,9 @@ public class SearchInRotatedSortedArray {
             int right = nums.length - 1;
             int mid = left + (right - left) / 2;
             while (left <= right) {
-                if (nums[mid] == target)
+                if (nums[mid] == target) {
                     return mid;
-                if (nums[left] <= nums[mid]) {
+                } else if (nums[left] <= nums[mid]) {
                     if (target >= nums[left] && target <= nums[mid]) {
                         right = mid - 1;
                     } else {
@@ -50,12 +50,13 @@ public class SearchInRotatedSortedArray {
                     } else {
                         right = mid - 1;
                     }
+
                 }
                 mid = left + (right - left) / 2;
             }
             return -1;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

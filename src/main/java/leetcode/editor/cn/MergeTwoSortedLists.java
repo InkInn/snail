@@ -16,7 +16,6 @@ public class MergeTwoSortedLists {
     }
 
 
-
     /**
      * Definition for singly-linked list.
      */

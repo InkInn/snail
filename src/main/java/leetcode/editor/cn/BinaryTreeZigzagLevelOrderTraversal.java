@@ -52,28 +52,27 @@ public class BinaryTreeZigzagLevelOrderTraversal {
     class Solution {
         public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
             Queue<TreeNode> queue = new LinkedList<>();
-            List<List<Integer>> res = new ArrayList<>();
-            if (root == null) return res;
+            List<List<Integer>> result = new ArrayList<>();
+            if (root == null) return result;
             queue.add(root);
-            int i = 0;
+            int h = 0;
             while (!queue.isEmpty()) {
-                int count = queue.size();
+                int size = queue.size();
                 List<Integer> list = new ArrayList<>();
-                while (count > 0) {
+                for (int i = 0; i < size; i++) {
                     TreeNode node = queue.poll();
-                    if (i % 2 == 0) {
+                    if (h % 2 == 0) {
                         list.add(node.val);
                     } else {
                         list.add(0, node.val);
                     }
                     if (node.left != null) queue.add(node.left);
                     if (node.right != null) queue.add(node.right);
-                    count--;
                 }
-                res.add(list);
-                i++;
+                result.add(list);
+                h++;
             }
-            return res;
+            return result;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

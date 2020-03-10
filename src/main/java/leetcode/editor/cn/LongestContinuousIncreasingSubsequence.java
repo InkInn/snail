@@ -32,18 +32,15 @@ public class LongestContinuousIncreasingSubsequence {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findLengthOfLCIS(int[] nums) {
-            if(nums == null || nums.length == 0) return 0;
+            if (nums == null || nums.length == 0) return 0;
             int max = 1;
             int tmp = 1;
-            for (int i = 0; i < nums.length - 1; i++){
-                if(nums[i] < nums[i + 1]){
-                    tmp++;
-                    if(tmp > max){
-                        max = tmp;
-                    }
-                }else {
+            for (int i = 0; i < nums.length - 1; i++) {
+                if (nums[i + 1] > nums[i]) tmp++;
+                else {
                     tmp = 1;
                 }
+                max = Math.max(max,tmp);
             }
             return max;
         }

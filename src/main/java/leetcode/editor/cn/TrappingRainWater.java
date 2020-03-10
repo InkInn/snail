@@ -23,26 +23,20 @@ public class TrappingRainWater {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int trap(int[] height) {
-            int length = height.length;
-            int[] left = new int[length];
-            int[] right = new int[length];
+            int[] left = new int[height.length];
+            int[] right = new int[height.length];
             int leftMax = 0;
             int rightMax = 0;
-            int sum = 0;
-            for (int i = 0; i < length; i++) {
-                if (height[i] > leftMax) {
-                    leftMax = height[i];
-                }
+            for (int i = 0; i < height.length; i++) {
+                leftMax = Math.max(leftMax, height[i]);
                 left[i] = leftMax;
-                if (height[length - 1 - i] > rightMax) {
-                    rightMax = height[length - 1 - i];
-                }
-                right[length - 1 - i] = rightMax;
+                rightMax = Math.max(rightMax, height[height.length - i - 1]);
+                right[height.length - i - 1] = rightMax;
             }
-
-            for(int j = 0; j < length; j++){
-                if(height[j] < left[j] && height[j] < right[j]){
-                    sum = sum + Math.min(left[j],right[j])-height[j];
+            int sum = 0;
+            for (int i = 0; i < height.length; i++) {
+                if (height[i] < left[i] && height[i] < right[i]) {
+                    sum = sum + Math.min(left[i], right[i]) - height[i];
                 }
             }
             return sum;
