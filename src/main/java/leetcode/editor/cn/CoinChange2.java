@@ -48,7 +48,9 @@ package leetcode.editor.cn;
 
 public class CoinChange2 {
     public static void main(String[] args) {
+        int[] coins = {2};
         Solution solution = new CoinChange2().new Solution();
+        solution.change(3,coins);
     }
 
 
@@ -58,8 +60,8 @@ public class CoinChange2 {
             int[] dp = new int[amount + 1];
             dp[0] = 1;
             for (int coin : coins) {
-                for (int x = coin; x < amount + 1; x++) {
-                    dp[x] = dp[x] + dp[x - coin];
+                for(int i = coin; i <= amount; i++){
+                    dp[i] = dp[i] + dp[i - coin];
                 }
             }
             return dp[amount];

@@ -23,7 +23,9 @@ import java.util.Arrays;
 
 public class CoinChange {
     public static void main(String[] args) {
+        int[] coins = {2};
         Solution solution = new CoinChange().new Solution();
+        solution.coinChange(coins,3);
     }
 
 
@@ -41,7 +43,7 @@ public class CoinChange {
                     }
                 }
             }
-            return dp[amount] > amount ? -1 : dp[amount];
+            return dp[amount] >= amount  ? -1 : dp[amount];
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
