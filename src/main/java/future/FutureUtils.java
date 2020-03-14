@@ -14,6 +14,7 @@ public class FutureUtils {
             final TimeoutException ex = new TimeoutException("Timeout after " + duration);
             return promise.completeExceptionally(ex);
         }, duration.toMillis(), TimeUnit.MILLISECONDS);
+
         return promise;
     }
 
