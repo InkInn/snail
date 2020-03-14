@@ -16,24 +16,25 @@ public class MergeSort {
     }
 
     public static void merge(int[] nums, int low, int mid, int high) {
-        int[] temp = new int[high - low + 1];
+        int[] tmp = new int[high - low + 1];
         int i = low;
         int j = mid + 1;
         int k = 0;
         while (i <= mid && j <= high) {
-            if (nums[i] < nums[j]) temp[k++] = nums[i++];
-            else temp[k++] = nums[j++];
+            if (nums[i] < nums[j]) tmp[k++] = nums[i++];
+            else tmp[k++] = nums[j++];
         }
+
         while (i <= mid) {
-            temp[k++] = nums[i++];
+            tmp[k++] = nums[i++];
         }
 
         while (j <= high) {
-            temp[k++] = nums[j++];
+            tmp[k++] = nums[j++];
         }
 
-        for (int z = 0; z < temp.length; z++) {
-            nums[z + low] = temp[z];
+        for (int z = 0; z < tmp.length; z++) {
+            nums[z + low] = tmp[z];
         }
     }
 }
