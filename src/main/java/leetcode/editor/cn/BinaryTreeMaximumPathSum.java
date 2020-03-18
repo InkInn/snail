@@ -51,7 +51,7 @@ public class BinaryTreeMaximumPathSum {
     }
 
     class Solution {
-        int max = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
 
         public int maxPathSum(TreeNode root) {
             search(root);
@@ -62,7 +62,6 @@ public class BinaryTreeMaximumPathSum {
             if (node == null) return 0;
             int left = Math.max(search(node.left), 0);
             int right = Math.max(search(node.right), 0);
-
             int newPath = node.val + left + right;
             max = Math.max(max, newPath);
             return node.val + Math.max(left, right);

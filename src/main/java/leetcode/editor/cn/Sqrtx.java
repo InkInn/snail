@@ -24,7 +24,8 @@ package leetcode.editor.cn;
 
 public class Sqrtx {
     public static void main(String[] args) {
-        Solution solution = new Sqrtx().new Solution();
+        SolutionFloat solution = new Sqrtx().new SolutionFloat();
+        System.out.println(solution.mySqrt(2));
     }
 
 
@@ -36,17 +37,34 @@ public class Sqrtx {
             long right = x / 2;
             while (left < right) {
                 long mid = left + (right - left + 1) / 2;
-                long square = mid * mid;
-                if (square > x) {
+                long sqrt = mid * mid;
+                if (sqrt > x) {
                     right = mid - 1;
                 } else {
                     left = mid;
                 }
             }
             return (int) left;
-
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
+    class SolutionFloat {
+        public double mySqrt(int x) {
+            if (x == 0) return 0;
+            double left = 1;
+            double right = x;
+            double mid = 0;
+            while (right - left > 0.00001) {
+                mid = (left + right) / 2;
+                double sqrt = mid * mid;
+                if (sqrt > x) {
+                    right = mid;
+                } else {
+                    left = mid;
+                }
+            }
+            return mid;
+        }
+    }
 }
