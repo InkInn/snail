@@ -22,7 +22,7 @@ package leetcode.editor.cn;
 public class KthLargestElementInAnArray {
     public static void main(String[] args) {
         Solution solution = new KthLargestElementInAnArray().new Solution();
-        int[] nums = {3,2,3,1,2,4,5,5,6};
+        int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
         solution.findKthLargest(nums, 4);
     }
 

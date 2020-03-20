@@ -25,7 +25,7 @@ public class CoinChange {
     public static void main(String[] args) {
         int[] coins = {2};
         Solution solution = new CoinChange().new Solution();
-        solution.coinChange(coins,3);
+        solution.coinChange(coins, 3);
     }
 
 
@@ -33,17 +33,17 @@ public class CoinChange {
     class Solution {
         public int coinChange(int[] coins, int amount) {
             int max = amount + 1;
-            int[] dp = new int[amount + 1];
+            int[] dp = new int[max];
             Arrays.fill(dp, max);
             dp[0] = 0;
             for (int i = 1; i <= amount; i++) {
                 for (int coin : coins) {
-                    if (coin <= i) {
+                    if(coin <=i ) {
                         dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                     }
                 }
             }
-            return dp[amount] >= amount  ? -1 : dp[amount];
+            return dp[amount] == max ? -1 : dp[amount];
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

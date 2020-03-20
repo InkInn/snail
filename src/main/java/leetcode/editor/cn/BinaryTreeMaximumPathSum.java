@@ -60,14 +60,14 @@ public class BinaryTreeMaximumPathSum {
 
         public int search(TreeNode node) {
             if (node == null) return 0;
-            int left = Math.max(search(node.left), 0);
-            int right = Math.max(search(node.right), 0);
+            int left = search(node.left);
+            int right = search(node.right);
             int newPath = node.val + left + right;
             max = Math.max(max, newPath);
             return node.val + Math.max(left, right);
         }
 
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

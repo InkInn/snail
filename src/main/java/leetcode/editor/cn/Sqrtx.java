@@ -24,24 +24,24 @@ package leetcode.editor.cn;
 
 public class Sqrtx {
     public static void main(String[] args) {
-        SolutionFloat solution = new Sqrtx().new SolutionFloat();
-        System.out.println(solution.mySqrt(2));
+        Solution solution = new Sqrtx().new Solution();
+        System.out.println(solution.mySqrt(4));
     }
 
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int mySqrt(int x) {
-            if (x == 0) return 0;
+            if (x == 0 || x == 1) return x;
             long left = 1;
             long right = x / 2;
             while (left < right) {
                 long mid = left + (right - left + 1) / 2;
-                long sqrt = mid * mid;
-                if (sqrt > x) {
-                    right = mid - 1;
-                } else {
+                if (x == mid * mid) return (int) mid;
+                if (x > mid * mid) {
                     left = mid;
+                } else {
+                    right = mid - 1;
                 }
             }
             return (int) left;

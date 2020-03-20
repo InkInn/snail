@@ -24,7 +24,6 @@ public class MergeSort {
             if (nums[i] < nums[j]) tmp[k++] = nums[i++];
             else tmp[k++] = nums[j++];
         }
-
         while (i <= mid) {
             tmp[k++] = nums[i++];
         }
