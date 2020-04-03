@@ -32,7 +32,4 @@ public class ClazzTest {
         set.add(3);
         System.out.println(set.iterator().next());
     }
-
-
-
 }

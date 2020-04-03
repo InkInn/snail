@@ -18,6 +18,7 @@
 package leetcode.editor.cn;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class MergeIntervals {
@@ -31,7 +32,7 @@ public class MergeIntervals {
         public int[][] merge(int[][] intervals) {
             LinkedList<int[]> result = new LinkedList<>();
             if (intervals == null || intervals.length == 0) return result.toArray(new int[0][]);
-            Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
+            Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
             for (int i = 0; i < intervals.length; i++) {
                 if (result.isEmpty() || result.getLast()[1] < intervals[i][0]) {
                     result.add(intervals[i]);
