@@ -28,7 +28,7 @@ public class RedisTest {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("192.168.3.44", 6379);
         JedisClientConfiguration.JedisClientConfigurationBuilder builder = JedisClientConfiguration.builder();
         builder.connectTimeout(Duration.ofSeconds(30));
-        config.setPassword("jredis123456");
+//        config.setPassword("jredis123456");
 
         RedisConnectionFactory redisConnectionFactory = new JedisConnectionFactory(config, builder.build());
         RedisTemplate<String, String> redis = new RedisTemplate<>();

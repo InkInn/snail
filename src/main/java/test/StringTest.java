@@ -12,12 +12,14 @@ import java.nio.charset.StandardCharsets;
  */
 public class StringTest {
     public static void main(String[] args) throws UnsupportedEncodingException {
-        AlbumInfo albumInfo = new AlbumInfo();
-        albumInfo.setIsPaid(true);
-        albumInfo.setAlbumId(111l);
-        albumInfo.setAlbumName("asd");
-        test1(JSON.toJSONString(albumInfo).getBytes());
+        int i = 0;
+        fun1(i);
+        System.out.println("main " + i);
+    }
 
+    private static void fun1(int i) {
+        System.out.println("fun1 " + i);
+        i++;
     }
 
     private static void test1(byte[] msg) throws UnsupportedEncodingException {
